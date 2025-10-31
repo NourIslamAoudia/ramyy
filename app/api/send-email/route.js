@@ -15,7 +15,7 @@ export async function POST(request) {
     }
 
     // Forward the request to your email API
-    const response = await fetch('https://www.bcconciergerie.com/api/send-email', {
+    const response = await fetch('https://bcconciergerie.com/api/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
