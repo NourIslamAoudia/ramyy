@@ -6,7 +6,7 @@
   <!-- Homepage - B&C Conciergerie Côte d'Azur -->
   <url>
     <loc>https://www.bcconciergerie.com/</loc>
-    <lastmod>2025-10-24</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.bcconciergerie.com/" />
@@ -14,40 +14,35 @@
   
   <!-- Services de Conciergerie -->
   <url>
-    <loc>https://www.bcconciergerie.com/#services</loc>
-    <lastmod>2025-10-24</lastmod>
+    <loc>https://www.bcconciergerie.com/services</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bcconciergerie.com/services" />
   </url>
   
-  <!-- Gestion Locative Nice -->
+  <!-- Nos Offres -->
   <url>
-    <loc>https://www.bcconciergerie.com/#destinations</loc>
-    <lastmod>2025-10-24</lastmod>
+    <loc>https://www.bcconciergerie.com/offres</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bcconciergerie.com/offres" />
   </url>
   
-  <!-- Gestion Locative Monaco -->
+  <!-- À Propos -->
   <url>
-    <loc>https://www.bcconciergerie.com/#destinations</loc>
-    <lastmod>2025-10-24</lastmod>
+    <loc>https://www.bcconciergerie.com/a-propos</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  
-  <!-- Location Airbnb Cannes -->
-  <url>
-    <loc>https://www.bcconciergerie.com/#destinations</loc>
-    <lastmod>2025-10-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bcconciergerie.com/a-propos" />
   </url>
   
   <!-- Nos Logements -->
   <url>
     <loc>https://www.bcconciergerie.com/#logements</loc>
-    <lastmod>2025-10-24</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -55,7 +50,7 @@
   <!-- À Propos / Nos Engagements -->
   <url>
     <loc>https://www.bcconciergerie.com/#engagements</loc>
-    <lastmod>2025-10-24</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -63,7 +58,7 @@
   <!-- Contact -->
   <url>
     <loc>https://www.bcconciergerie.com/#contact</loc>
-    <lastmod>2025-10-24</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
