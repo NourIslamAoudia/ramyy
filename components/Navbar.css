@@ -1,0 +1,531 @@
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  color: white;
+  padding: 1rem 0;
+  animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 1500ms cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 1500ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 1500ms cubic-bezier(0.4, 0, 0.2, 1),
+              padding 1500ms ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar:hover {
+  /* slightly stronger olive tint on hover */
+  background: rgba(112, 130, 56, 0.22);
+}
+
+/* Transparent state (initial page load) */
+.navbar.transparent {
+  background: transparent;
+  backdrop-filter: none;
+  color: var(--muted-white);
+}
+
+/* Scrolled state (after user scrolls) */
+.navbar.scrolled {
+  /* Olive tint requested: #708238 with solid fallback for browsers without backdrop-filter support */
+  background-color: rgba(112, 130, 56, 0.85);
+  /* stronger blur for more pronounced frosted glass */
+  backdrop-filter: blur(14px) saturate(110%);
+  -webkit-backdrop-filter: blur(14px) saturate(110%);
+  color: var(--muted-white);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 1500ms cubic-bezier(0.2,0.8,0.2,1);
+  will-change: padding, transform;
+}
+
+.navbar-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 1500ms cubic-bezier(0.2,0.8,0.2,1);
+  will-change: transform;
+}
+
+/* Left section */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  color: white;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-icon:hover {
+  opacity: 0.7;
+  transform: scale(1.1) rotate(90deg);
+}
+
+.logo {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300;
+  color: white;
+  letter-spacing: 0.5px;
+  font-family: 'Georgia', serif;
+  white-space: nowrap;
+  transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1), font-size 220ms ease;
+  will-change: transform;
+}
+
+.logo:hover {
+  letter-spacing: 2px;
+  transform: scale(1.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: inline-block;
+  transition: width 1500ms ease, height 1500ms ease, transform 1500ms cubic-bezier(0.2,0.8,0.2,1);
+  will-change: width, height, transform;
+}
+
+/* Animated adjustments when navbar is scrolled */
+.navbar.scrolled .navbar-inner {
+  transform: translateY(0) translateX(-6px);
+}
+
+.navbar.scrolled .navbar-inner {
+  transform: translateY(0) translateX(-6px);
+}
+
+.navbar.scrolled .navbar-left {
+  gap: 1rem; /* tighten up left-side spacing */
+}
+
+.navbar.scrolled .navbar-left {
+  transform: translateX(-6px);
+  transition: transform 260ms cubic-bezier(0.2,0.8,0.2,1);
+}
+
+.navbar.scrolled .logo {
+  transform: translateX(-8px) scale(0.98);
+}
+
+.navbar.scrolled .logo-img {
+  width: 34px;
+  height: 34px;
+}
+
+/* Backdrop for the slide-out drawer */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  pointer-events: none;
+  transition: background 260ms ease;
+  z-index: 900;
+}
+.nav-backdrop.open {
+  background: rgba(0,0,0,0.45);
+  pointer-events: auto;
+  /* Blur the content behind the backdrop for a frosted effect */
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
+  will-change: backdrop-filter;
+  transition: background 1500ms ease, backdrop-filter 1500ms ease;
+}
+
+/* Drawer */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 360px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  color: #111;
+  z-index: 1000;
+  box-shadow: 4px 0 40px rgba(0,0,0,0.15);
+  /* hide off-screen by moving full width to the left */
+  transform: translateX(-100%);
+  transition: transform 1500ms cubic-bezier(0.2,0.8,0.2,1);
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+.nav-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.drawer-links {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+.drawer-links a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.drawer-footer {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+.drawer-contact {
+  font-size: 0.9rem;
+  color: #555;
+}
+.drawer-contact-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: var(--olive-700);
+}
+
+@media (max-width: 480px) {
+  .nav-drawer { width: 85vw; padding: 1.6rem; }
+}
+
+/* Blur the main content behind the drawer */
+.site-main.blurred {
+  filter: blur(6px) saturate(110%);
+  -webkit-filter: blur(6px) saturate(110%);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 260ms ease;
+}
+
+.logo-text {
+  text-transform: lowercase;
+  white-space: nowrap; /* Keep "conciergerie" on one line always */
+}
+
+@media (max-width: 767px) {
+  /* Keep logo on one line always */
+  .logo {
+    white-space: nowrap;
+  }
+}
+
+/* Right section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.phone-number {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 300;
+  position: relative;
+}
+
+.phone-number::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: white;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phone-number:hover::after {
+  width: 100%;
+}
+
+.phone-number:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.app-button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.app-button:hover::before {
+  left: 0;
+}
+
+.app-button:hover {
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* WhatsApp button tweaks */
+.whatsapp-button svg {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.whatsapp-text {
+  vertical-align: middle;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-button:hover {
+  opacity: 0.8;
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Prevent the wishlist heart from shifting/rotating on hover */
+.icon-button.wishlist:hover {
+  transform: none;
+  opacity: 0.9; /* keep a little hover feedback */
+}
+
+/* Prevent right-side icon buttons (wishlist, profile, etc.) from shifting/rotating on hover */
+.navbar-right .icon-button:hover {
+  transform: none;
+  opacity: 0.92; /* subtle hover feedback only */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+  
+  .navbar-left {
+    gap: 1rem;
+  }
+  
+  .navbar-right {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  /* hide phone number and most app buttons on small screens,
+     but keep the WhatsApp button visible so users can contact us quickly */
+  .phone-number {
+    display: none;
+  }
+
+  .app-button {
+    display: none;
+  }
+
+  /* override: always show the WhatsApp app button in the navbar on small screens */
+  .app-button.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* Hide WhatsApp text on all mobile phones, show only icon */
+  .whatsapp-button span {
+    display: none;
+  }
+
+  .whatsapp-button svg {
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+
+  .navbar-right {
+    gap: 0.5rem; /* Reduced from 1rem for better spacing */
+  }
+  
+  .navbar-left {
+    gap: 0.75rem;
+  }
+  
+  .menu-icon,
+  .icon-button {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.75rem;
+  }
+  
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  
+  .navbar-left {
+    gap: 0.5rem;
+  }
+  
+  .navbar-right {
+    gap: 0.3rem; /* Further reduced for small phones */
+  }
+  
+  .menu-icon,
+  .icon-button {
+    padding: 0.3rem;
+  }
+
+  /* Make WhatsApp button more compact on very small screens */
+  .app-button.whatsapp-button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .whatsapp-button svg {
+    margin-right: 0.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  
+  .logo {
+    font-size: 1.1rem; /* Size for screens <= 391px */
+  }
+
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Extra compact WhatsApp button for very small screens */
+  .app-button.whatsapp-button {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+
+  /* Hide WhatsApp text on extra small screens, show only icon */
+  .whatsapp-button span {
+    display: none;
+  }
+
+  .whatsapp-button svg {
+    font-size: 1.1rem;
+    margin-right: 0;
+  }
+  
+  .navbar-right {
+    gap: 0.3rem; /* Minimal gap for extra small screens */
+  }
+}
+
+/* Phones between 392px and 768px */
+@media (min-width: 392px) and (max-width: 768px) {
+  .logo {
+    font-size: 1.3rem; /* Size for screens > 391px */
+  }
+}

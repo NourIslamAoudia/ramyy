@@ -1,0 +1,444 @@
+/* Iconic Collection Carousel - Luxury Destinations */
+.iconic-collection-section {
+  width: 100%;
+  background-color: #FAF9F6; /* Blanc cassé - Pureté, équilibre */
+  padding: 80px 40px;
+  position: relative;
+}
+
+.iconic-collection-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: #708238; /* Vert olive - Nature, prestige, confiance */
+  color: #FAF9F6;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(112, 130, 56, 0.25);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #708238; /* Vert olive */
+  margin: 0;
+}
+
+.title-highlight {
+  color: #C7A76C; /* Doré léger - Raffinement, touche luxe */
+}
+
+.iconic-collection-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  /* Start visible to avoid content flash before JS mounts. Child cards are still animated via Framer Motion variants. */
+  opacity: 1;
+  transform: none;
+}
+
+/* Keep the is-visible class for compatibility but don't toggle visibility via CSS to avoid flicker.
+   Visual entrance is handled by Framer Motion variants on child elements. */
+.iconic-collection-container.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.destination-cards-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.destination-card {
+  width: 100%;
+  height: 450px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(112, 130, 56, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid #F5EEDF;
+}
+
+.featured-card-large {
+  width: 636px;
+  height: 600px;
+  position: relative;
+}
+
+.featured-card-image-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(112, 130, 56, 0.08);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #F5EEDF;
+}
+
+.featured-card-large:hover .featured-card-image-wrapper {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(112, 130, 56, 0.15);
+  border-color: #C7A76C;
+}
+
+/* Performance hints for motion animations - use transform/opacity only to avoid layout shift */
+.featured-card-image-wrapper,
+.destination-card {
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.featured-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #222;
+  border-top: 2px solid #C7A76C;
+}
+
+/* Featured badge removed per user request */
+
+.featured-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #708238;
+}
+
+.featured-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  color: #666;
+}
+
+.featured-location svg {
+  color: #C7A76C;
+}
+
+.featured-description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: #555;
+  max-width: 100%;
+}
+
+/* Featured footer and price removed - keeping CSS for reference */
+/*
+.featured-footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.featured-packages,
+.featured-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFFFFF;
+}
+
+.featured-packages svg,
+.featured-rating svg {
+  color: #C7A76C;
+  fill: #C7A76C;
+}
+
+.featured-price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.price-label {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.featured-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+*/
+
+/* Explore button removed per user request */
+
+.destination-cards-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.destination-card {
+  width: 100%;
+  height: 450px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(112, 130, 56, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid #F5EEDF;
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(112, 130, 56, 0.15);
+  border-color: #C7A76C;
+}
+
+.card-thumbnail {
+  width: 100%;
+  height: 280px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.destination-card:hover .card-thumbnail-image {
+  transform: scale(1.1);
+}
+
+/* Badges removed per user request - previously used for card labels */
+
+.card-content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #708238; /* Vert olive */
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #708238; /* Vert olive */
+  margin-bottom: 12px;
+}
+
+.card-location svg {
+  color: #708238;
+  stroke: #708238;
+}
+
+.card-description {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer elements removed - keeping CSS for future use */
+/*
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.card-tours,
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #555;
+}
+
+.card-tours svg,
+.card-rating svg {
+  color: #C7A76C;
+  fill: #C7A76C;
+  stroke: #C7A76C;
+}
+
+.card-price {
+  margin-left: auto;
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+}
+
+.card-price strong {
+  font-size: 16px;
+  color: #708238;
+  font-weight: 700;
+}
+*/
+
+@media (max-width: 1300px) {
+  .iconic-collection-container {
+    padding: 0 20px;
+    max-width: 650px;
+  }
+  .destination-card {
+    height: 170px;
+  }
+  .card-thumbnail {
+    width: 130px;
+    height: 170px;
+  }
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* Tablet: 2 columns */
+@media (max-width: 1200px) {
+  .iconic-collection-container {
+    max-width: 900px;
+  }
+  
+  .destination-cards-stack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Mobile: Stack vertically (original design) */
+@media (max-width: 768px) {
+  .iconic-collection-section {
+    padding: 60px 24px;
+  }
+  
+  .iconic-collection-header {
+    margin-bottom: 40px;
+  }
+  
+  .iconic-collection-container {
+    max-width: 600px;
+  }
+  
+  .destination-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .destination-card {
+    height: 180px;
+    flex-direction: row;
+  }
+  
+  .card-thumbnail {
+    width: 140px;
+    height: 180px;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  
+  .card-description {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .iconic-collection-section {
+    padding: 40px 16px;
+  }
+  
+  .iconic-collection-header {
+    margin-bottom: 32px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .destination-card {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .card-thumbnail {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .card-description {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}

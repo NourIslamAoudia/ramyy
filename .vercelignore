@@ -1,0 +1,12 @@
+.gitignore
+.vercelignore
+README.md
+node_modules
+src/**/*.test.*
+src/**/__snapshots__
+.vscode
+.idea
+*.log
+*.local
+/.cache
+/.parcel-cache

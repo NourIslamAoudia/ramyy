@@ -1,0 +1,112 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 16px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.lang-btn.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 700;
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+/* When navbar is scrolled */
+.navbar.scrolled .lang-btn {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar.scrolled .lang-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+.navbar.scrolled .lang-btn.active {
+  color: #000;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled .lang-divider {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .language-switcher {
+    margin-right: 6px;
+    gap: 3px;
+  }
+  
+  .lang-btn {
+    font-size: 11px;
+    padding: 3px 5px;
+    letter-spacing: 0.2px;
+    min-width: auto;
+  }
+  
+  .lang-divider {
+    font-size: 11px;
+    margin: 0 1px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .language-switcher {
+    margin-right: 4px;
+    gap: 2px;
+  }
+  
+  .lang-btn {
+    font-size: 10px;
+    padding: 2px 4px;
+    letter-spacing: 0.1px;
+  }
+  
+  .lang-divider {
+    font-size: 10px;
+    margin: 0;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+  .language-switcher {
+    margin-right: 2px;
+    gap: 1px;
+  }
+  
+  .lang-btn {
+    font-size: 9px;
+    padding: 2px 3px;
+    letter-spacing: 0;
+    border-radius: 2px;
+  }
+  
+  .lang-divider {
+    font-size: 9px;
+  }
+}

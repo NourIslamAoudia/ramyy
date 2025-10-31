@@ -1,0 +1,445 @@
+/* Nos Logements Section - Luxury Property Showcase */
+.nos-logements-section {
+  width: 100%;
+  background: linear-gradient(to bottom, #FAF9F6 0%, #F5EEDF 100%);
+  padding: 100px 40px;
+  position: relative;
+}
+
+.nos-logements-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.nos-logements-header {
+  text-align: center;
+  margin-bottom: 70px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  animation: fadeInDown 0.8s ease-out 0.2s forwards;
+}
+
+.nos-logements-header .section-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: #708238;
+  color: #FAF9F6;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(112, 130, 56, 0.25);
+  opacity: 0;
+  animation: scaleIn 0.6s ease-out 0.4s forwards;
+}
+
+.nos-logements-header .section-title {
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #708238;
+  margin: 0 0 24px 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.section-intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+/* Properties Grid */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+/* Property Card */
+.property-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(112, 130, 56, 0.08);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: cardEntrance 0.8s ease forwards;
+  animation-play-state: paused;
+  border: 1px solid #F5EEDF;
+}
+
+.properties-grid.in-view .property-card {
+  animation-play-state: running;
+}
+
+.property-card:nth-child(1) { animation-delay: 0.1s; }
+.property-card:nth-child(2) { animation-delay: 0.3s; }
+.property-card:nth-child(3) { animation-delay: 0.5s; }
+.property-card:nth-child(4) { animation-delay: 0.7s; }
+.property-card:nth-child(5) { animation-delay: 0.9s; }
+
+.property-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(112, 130, 56, 0.2);
+  border-color: #C7A76C;
+}
+
+/* Photo Gallery */
+.property-photos {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.property-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.property-photo.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.property-photo:not(.active) {
+  transform: scale(1.1);
+}
+
+.property-card:hover .property-photo.active {
+  transform: scale(1.05);
+}
+
+/* Mobile Overlay - hidden on desktop */
+.property-overlay {
+  display: none;
+}
+
+/* Category Badge */
+.property-badge, .badge-blue, .badge-gold, .badge-olive {
+  display: none !important; /* badges removed from UI per request; keeping rule to avoid linter empty-rule errors */
+}
+
+/* Photo Indicators */
+.photo-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background: #FFFFFF;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Card Content */
+.property-content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.property-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #708238;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.property-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #666;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Property CTA Button */
+/* CTA removed from cards — styles deleted to fully remove the button */
+
+/* View All CTA */
+/* View-all CTA removed per request */
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95) rotateX(10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02) rotateX(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .properties-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nos-logements-section {
+    padding: 70px 24px;
+  }
+
+  .nos-logements-header {
+    margin-bottom: 50px;
+  }
+
+  .properties-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .property-photos {
+    height: 240px;
+  }
+
+  .property-content {
+    padding: 24px;
+  }
+
+  .property-title {
+    font-size: 20px;
+  }
+
+  .property-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nos-logements-section {
+    padding: 50px 0 50px 0;
+  }
+
+  .nos-logements-header {
+    padding: 0 16px;
+  }
+
+  .nos-logements-header .section-title {
+    font-size: 28px;
+  }
+
+  .section-intro {
+    font-size: 15px;
+  }
+
+  /* Horizontal scrolling container for all cards */
+  .properties-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 16px;
+    margin-bottom: 0;
+  }
+
+  .properties-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each card is fixed width, scrolls horizontally */
+  .property-card {
+    flex-shrink: 0;
+    width: 75vw !important;
+    max-width: 340px !important;
+    margin: 0 !important;
+    border-radius: 20px;
+    scroll-snap-align: start;
+  }
+
+  /* Mobile: Enable horizontal scroll for photos within each card */
+  .property-photos {
+    height: 320px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .property-photos::-webkit-scrollbar {
+    display: none;
+  }
+
+  .photo-wrapper {
+    display: flex;
+    width: 200%; /* 2 photos side by side */
+    height: 100%;
+  }
+
+  .property-photo {
+    position: relative;
+    flex-shrink: 0;
+    width: 50%; /* Each photo takes half of wrapper */
+    height: 100%;
+    scroll-snap-align: start;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Mobile Overlay - like the screenshot */
+  .property-overlay {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    padding: 24px 20px;
+    z-index: 3;
+  }
+
+  .property-title-overlay {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hide desktop content on mobile */
+  .property-content {
+    display: none;
+  }
+
+  /* Photo indicators - keep visible */
+  .photo-indicators {
+    bottom: 90px; /* Move up above overlay text */
+    z-index: 4;
+  }
+
+  .indicator {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .indicator.active {
+    background: #FFFFFF;
+  }
+}
+
+/* Performance optimizations */
+.property-card {
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.property-photo {
+  will-change: opacity, transform;
+}

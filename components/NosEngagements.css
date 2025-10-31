@@ -1,0 +1,197 @@
+/* ===========================
+   Nos Engagements Section
+   =========================== */
+.nos-engagements-section {
+  padding: 80px 40px;
+  background: #708238;
+  position: relative;
+}
+
+.nos-engagements-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nos-engagements-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Content Column */
+.nos-engagements-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.engagements-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #C7A76C;
+  color: #FAF9F6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  align-self: flex-start;
+  box-shadow: 0 4px 12px rgba(199, 167, 108, 0.3);
+}
+
+.engagements-title {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #FAF9F6;
+  margin: 0;
+}
+
+.engagements-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.95);
+  max-width: 720px;
+  margin: 8px 0 0 0;
+}
+/* Checklist */
+.engagements-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-icon {
+  flex-shrink: 0;
+  color: #C7A76C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checklist-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #FAF9F6;
+  font-weight: 400;
+}
+
+/* Image Column */
+.nos-engagements-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.nos-engagements-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Award Badge */
+/* Award badge removed */
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 1024px) {
+  .nos-engagements-section {
+    padding: 60px 32px;
+  }
+
+  .nos-engagements-container {
+    gap: 40px;
+  }
+
+  .engagements-title {
+    font-size: 32px;
+  }
+
+  .nos-engagements-image-wrapper {
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nos-engagements-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .nos-engagements-content {
+    order: 2;
+  }
+
+  .nos-engagements-image-wrapper {
+    order: 1;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nos-engagements-section {
+    padding: 50px 24px;
+  }
+
+  .engagements-title {
+    font-size: 28px;
+  }
+
+  .checklist-text {
+    font-size: 15px;
+  }
+
+  .nos-engagements-image-wrapper {
+    min-height: 350px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .nos-engagements-section {
+    padding: 40px 20px;
+  }
+
+  .nos-engagements-container {
+    gap: 32px;
+  }
+
+  .engagements-title {
+    font-size: 24px;
+  }
+
+  .engagements-badge {
+    font-size: 11px;
+    padding: 7px 16px;
+  }
+
+  .checklist-text {
+    font-size: 14px;
+  }
+
+  .nos-engagements-image-wrapper {
+    min-height: 300px;
+  }
+
+}

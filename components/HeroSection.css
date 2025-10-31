@@ -1,0 +1,303 @@
+/* HeroSection Styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  /* make the hero much taller on large screens while remaining responsive
+     Use a viewport height basis with a high minimum so the video appears long */
+  height: 100vh;
+  min-height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: none;
+}
+
+/* Background Video - Fullscreen */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  animation: zoomIn 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Dark Overlay on top of video */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* warm dark overlay that pairs with the olive/beige palette */
+  background: linear-gradient(to bottom, rgba(7,16,20,0.46), rgba(112,130,56,0.06));
+  z-index: 1;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Add a subtle black linear filter on top of the warm overlay to darken the video
+   while preserving the olive tint underneath. Using ::before keeps the original
+   gradient intact and allows easy tuning. */
+.hero-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* reversed: lighter at top -> darker at bottom */
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.65));
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hero Content - Centered text and search */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--offwhite-50);
+  max-width: 1200px;
+  padding: 0 2rem;
+  width: 100%;
+  animation: fadeInUpHero 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+@keyframes fadeInUpHero {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main Headline */
+.hero-title {
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  color: var(--offwhite-50); /* #FAF9F6 */
+  animation: titleReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+  /* Respect explicit <br> line breaks and avoid unexpected wrapping during animation */
+  white-space: pre-line;
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subheadline */
+.hero-subtitle {
+  /* Increased base size for stronger visual hierarchy */
+  font-size: clamp(1.05rem, 3vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  opacity: 0.95;
+  color: var(--offwhite-50); /* #FAF9F6 */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  animation: subtitleReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both;
+}
+
+@keyframes subtitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+  
+  .hero-section {
+    /* slightly reduce on medium screens */
+    height: 75vh;
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 1.25rem;
+  }
+
+  .hero-section {
+    height: 70vh;
+    min-height: 400px;
+  }
+
+  .hero-title {
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 3.2vw, 1.4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .hero-section {
+    height: 60vh;
+    min-height: 350px;
+  }
+
+  .hero-title {
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+    font-size: clamp(0.98rem, 3.8vw, 1.2rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-content {
+    padding: 0 0.75rem;
+  }
+
+  .hero-section {
+    min-height: 300px;
+  }
+}
+
+/* Estimation Button */
+.estimation-button {
+  margin-top: 1.5rem;
+  padding: 0.9rem 2rem;
+  background-color: transparent;
+  color: var(--offwhite-50);
+  border: 2px solid var(--olive-700);
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.estimation-button:hover {
+  background-color: rgba(112,130,56,0.12); /* subtle olive hover */
+  color: var(--offwhite-50);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(199,167,108,0.08); /* gentle gold-tinted glow */
+  border-color: var(--gold-100);
+}
+
+@media (max-width: 768px) {
+  .estimation-button {
+    padding: 0.75rem 1.75rem;
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .estimation-button {
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+  }
+}
+
+@media (max-width: 360px) {
+  .estimation-button {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.8rem;
+  /* allow button text to wrap on very small screens */
+  .estimation-button {
+    white-space: normal;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+  }
+}
+
+/* Suggestion Bar Overlay - Positioned at bottom of hero section */
+.hero-suggestion-overlay {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+@media (max-width: 1024px) {
+  .hero-suggestion-overlay {
+    bottom: 5%;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-suggestion-overlay {
+    bottom: 5%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-suggestion-overlay {
+    bottom: 5%;
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-suggestion-overlay {
+    bottom: 5%;
+    padding: 0 0.5rem;
+  }
+}

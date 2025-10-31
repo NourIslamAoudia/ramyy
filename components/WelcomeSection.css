@@ -1,0 +1,373 @@
+/* ============================================
+   WELCOME SECTION - Modern Clean Design
+   ============================================ */
+
+/* Main Section Container */
+.welcome-section {
+  width: 100%;
+  min-height: 100vh;
+  /* subtle vertical gradient from off-white to light beige (Figma spec) */
+  background: linear-gradient(to bottom, #FAF9F6 0%, #F5EEDF 100%);
+  /* fallback color for very old browsers */
+  background-color: var(--offwhite-50, #FAF9F6);
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Content Container */
+.welcome-container {
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ============================================
+   TEXT CONTENT STYLES
+   ============================================ */
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-right: 40px;
+}
+
+.welcome-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: var(--olive-700, #708238);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.welcome-description {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.75;
+  color: var(--text-dark, #333);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.welcome-description:first-of-type {
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* ============================================
+   PHOTO GRID STYLES
+   ============================================ */
+
+.welcome-photos {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.grid-photo {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: block;
+}
+
+.grid-photo:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(112, 130, 56, 0.15);
+  z-index: 10;
+}
+
+/* Grid Layout - Simple 2x2 Grid */
+.photo-1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.photo-2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.photo-3 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.photo-4 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Initial Hidden State */
+.welcome-container {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Visible State with Animation */
+.welcome-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.welcome-container.is-visible .welcome-title {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.welcome-container.is-visible .welcome-description {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.welcome-container.is-visible .grid-photo {
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger Photo Animations */
+.welcome-container.is-visible .photo-1 {
+  animation-delay: 0.3s;
+}
+
+.welcome-container.is-visible .photo-2 {
+  animation-delay: 0.4s;
+}
+
+.welcome-container.is-visible .photo-3 {
+  animation-delay: 0.5s;
+}
+
+.welcome-container.is-visible .photo-4 {
+  animation-delay: 0.6s;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+  .welcome-section {
+    padding: 80px 0;
+  }
+
+  .welcome-container {
+    gap: 60px;
+  }
+
+  .welcome-text {
+    padding-right: 20px;
+  }
+
+  .photo-grid {
+    max-width: 550px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 60px 20px;
+    min-height: auto;
+    overflow-x: hidden;
+  }
+
+  .welcome-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .welcome-text {
+    padding-right: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .welcome-title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+
+  .welcome-description {
+    font-size: clamp(1rem, 3vw, 1.15rem);
+  }
+
+  .welcome-photos {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+
+  .photo-grid {
+    max-width: 100%;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .grid-photo {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 40px 16px;
+    overflow-x: hidden;
+  }
+
+  .welcome-container {
+    width: 100%;
+    max-width: 100%;
+    gap: 40px;
+  }
+
+  .welcome-text {
+    gap: 20px;
+    padding: 0 8px;
+  }
+
+  .welcome-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .welcome-photos {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .photo-grid {
+    max-width: 100%;
+    width: 100%;
+    gap: 12px;
+    padding: 0;
+    aspect-ratio: auto;
+    grid-template-rows: auto auto;
+  }
+
+  .grid-photo {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .grid-photo:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+  .welcome-section {
+    padding: 30px 12px;
+  }
+
+  .welcome-container {
+    gap: 30px;
+  }
+
+  .welcome-text {
+    gap: 16px;
+    padding: 0 4px;
+  }
+
+  .photo-grid {
+    gap: 10px;
+  }
+
+  .grid-photo {
+    border-radius: 6px;
+  }
+}
+
+/* Very small devices (iPhone SE) */
+@media (max-width: 320px) {
+  .welcome-section {
+    padding: 24px 10px;
+  }
+
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .welcome-description {
+    font-size: 0.95rem;
+  }
+
+  .photo-grid {
+    gap: 8px;
+  }
+}

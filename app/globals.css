@@ -1,0 +1,167 @@
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* Brand color palette */
+  --olive-700: #708238; /* Vert olive - environnement, nature, prestige, confiance */
+  --beige-100: #F5EEDF; /* Beige clair - sérénité, lumière du Sud */
+  --offwhite-50: #FAF9F6; /* Blanc cassé - pureté, équilibre */
+  --gold-100: #C7A76C; /* Doré léger - raffinement (optionnel) */
+  --text-dark: #222; /* primary dark text */
+  --muted-white: rgba(250,249,246,0.95);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Use a subtle dark backdrop to help the hero video contrast with light text */
+  background-color: #071014; /* deep midnight tonic */
+  color: var(--text-dark);
+}
+
+/* Global utility colors */
+.bg-beige {
+  background-color: var(--beige-100) !important;
+}
+
+.text-olive {
+  color: var(--olive-700) !important;
+}
+
+.text-offwhite {
+  color: var(--offwhite-50) !important;
+}
+
+/* Hero-specific theming */
+.hero-section {
+  /* keep video visible but apply a warm overlay using beige with low opacity */
+  background: linear-gradient(
+    to bottom,
+    rgba(112,130,56,0.06),
+    rgba(199,167,108,0.04)
+  );
+}
+
+.hero-content {
+  color: var(--offwhite-50);
+}
+
+.hero-title {
+  color: var(--offwhite-50);
+}
+
+.hero-subtitle {
+  color: rgba(250,249,246,0.9);
+}
+
+.estimation-button {
+  background-color: transparent;
+  color: var(--offwhite-50);
+  border-color: var(--olive-700);
+}
+
+.estimation-button:hover {
+  background-color: rgba(112,130,56,0.12);
+  border-color: var(--gold-100);
+  color: var(--offwhite-50);
+}
+
+/* small gold accent utility */
+.accent-gold {
+  color: var(--gold-100);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth transitions for all interactive elements */
+button:hover,
+a:hover,
+input:focus,
+select:focus,
+textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hide scrollbar on mobile devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+  
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
+
+/* Next.js specific */
+.site-main {
+  min-height: 100vh;
+}
+
+.home-page {
+  width: 100%;
+}
