@@ -1,63 +1,62 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Output configuration for Vercel deployment
-  output: 'standalone',
-  
+  output: "standalone",
+
   // Enable React strict mode for better development experience
   reactStrictMode: true,
 
   // Image optimization configuration
   images: {
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // Cache images for 1 year
+    minimumCacheTTL: 60, // Cache for 1 minute
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    qualities: [75, 80, 85, 90, 95, 100], // Configure allowed quality values
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'bcconciergerie.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "bcconciergerie.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'www.bcconciergerie.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "www.bcconciergerie.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'www.leguidedescommerciaux.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "www.leguidedescommerciaux.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'studio.gaynako.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "studio.gaynako.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
 
   // Compiler options for better performance
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
 
   // Performance optimizations
@@ -67,7 +66,7 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['framer-motion', 'react-icons'],
+    optimizePackageImports: ["framer-motion", "react-icons"],
   },
 };
 
