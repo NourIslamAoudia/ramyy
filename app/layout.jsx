@@ -115,8 +115,12 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
 
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon - Multiple sizes for better browser support */}
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180" />
+        <link rel="shortcut icon" href="/favicon.png" />
 
         {/* Google Analytics */}
         <script
