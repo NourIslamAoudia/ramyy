@@ -77,6 +77,16 @@ export const metadata = {
       "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
     images: ["https://www.bcconciergerie.com/logo.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "https://bcconciergerie.com/assets/logo-32.png", sizes: "32x32", type: "image/png" },
+      { url: "https://bcconciergerie.com/assets/logo-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "https://bcconciergerie.com/assets/logo-180.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "https://bcconciergerie.com/assets/logo-32.png",
+  },
   alternates: {
     canonical: "https://www.bcconciergerie.com",
   },
@@ -114,6 +124,16 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+
+        {/* Standard Favicon */}
+        <link rel="icon" type="image/png" href="https://bcconciergerie.com/assets/logo-32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="https://bcconciergerie.com/assets/logo-16.png" sizes="16x16" />
+
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" href="https://bcconciergerie.com/assets/logo-180.png" />
+
+        {/* Shortcut Icon (Legacy) */}
+        <link rel="shortcut icon" href="https://bcconciergerie.com/assets/logo-32.png" />
 
         {/* Google Analytics */}
         <script
