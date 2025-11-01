@@ -79,13 +79,13 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.jpg", sizes: "any" },
-      { url: "/logo.jpg", type: "image/jpeg", sizes: "512x512" },
+      { url: "https://www.bcconciergerie.com/logo.jpg", sizes: "any" },
+      { url: "https://www.bcconciergerie.com/logo.jpg", type: "image/jpeg", sizes: "512x512" },
     ],
     apple: [
-      { url: "/logo.jpg", sizes: "180x180", type: "image/jpeg" },
+      { url: "https://www.bcconciergerie.com/logo.jpg", sizes: "180x180", type: "image/jpeg" },
     ],
-    shortcut: "/logo.jpg",
+    shortcut: "https://www.bcconciergerie.com/logo.jpg",
   },
   alternates: {
     canonical: "https://www.bcconciergerie.com",
@@ -129,16 +129,17 @@ export default function RootLayout({ children }) {
         <link
           rel="icon"
           type="image/jpeg"
-          href="/logo.jpg"
+          href="https://www.bcconciergerie.com/logo.jpg"
         />
         <link
           rel="apple-touch-icon"
-          href="/logo.jpg"
+          href="https://www.bcconciergerie.com/logo.jpg"
         />
         <link
           rel="shortcut icon"
-          href="/logo.jpg"
+          href="https://www.bcconciergerie.com/logo.jpg"
         />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* Google Analytics */}
         <script

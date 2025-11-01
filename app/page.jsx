@@ -12,8 +12,8 @@ export const metadata = {
   description:
     "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
   icons: {
-    icon: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "https://www.bcconciergerie.com/logo.jpg",
+    apple: "https://www.bcconciergerie.com/logo.jpg",
   },
 };
 

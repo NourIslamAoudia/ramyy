@@ -1,0 +1,17 @@
+{
+  "name": "B&C Conciergerie Côte d'Azur",
+  "short_name": "B&C Conciergerie",
+  "description": "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#708238",
+  "icons": [
+    {
+      "src": "https://www.bcconciergerie.com/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
