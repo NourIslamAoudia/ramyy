@@ -10,6 +10,14 @@ export const metadata = {
     "expertise gestion locative",
     "conciergerie de confiance",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: "À Propos de B&C Conciergerie | Notre Histoire & Valeurs",
     description:

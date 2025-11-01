@@ -66,6 +66,7 @@ export const metadata = {
         width: 1200,
         height: 630,
         alt: "B&C Conciergerie Côte d'Azur",
+        type: "image/jpeg",
       },
     ],
   },
@@ -74,7 +75,16 @@ export const metadata = {
     title: "B&C Conciergerie Côte d'Azur | Gestion Airbnb Nice Monaco",
     description:
       "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
-    images: ["/logo.jpg"],
+    images: ["https://bcconciergerie.com/assets/logo.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   alternates: {
     canonical: "https://www.bcconciergerie.com",
@@ -147,9 +157,11 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": ["LocalBusiness", "Organization"],
               name: "B&C Conciergerie Côte d'Azur",
-              image: "https://www.bcconciergerie.com/assets/logo.jpg",
+              alternateName: "B&C Conciergerie",
+              image: "https://bcconciergerie.com/assets/logo.jpg",
+              logo: "https://bcconciergerie.com/assets/logo.jpg",
               "@id": "https://www.bcconciergerie.com",
               url: "https://www.bcconciergerie.com",
               telephone: "+33-XXX-XXX-XXX",
@@ -203,8 +215,8 @@ export default function RootLayout({ children }) {
               "@type": "RealEstateAgent",
               name: "B&C Conciergerie Côte d'Azur",
               url: "https://www.bcconciergerie.com",
-              logo: "https://www.bcconciergerie.com/assets/logo.jpg",
-              image: "https://www.bcconciergerie.com/assets/logo.jpg",
+              logo: "https://bcconciergerie.com/assets/logo.jpg",
+              image: "https://bcconciergerie.com/assets/logo.jpg",
               description:
                 "Conciergerie de luxe et gestion locative professionnelle sur la Côte d'Azur. Spécialisés en location courte durée, Airbnb et gestion d'appartements haut de gamme.",
               priceRange: "€€€",
