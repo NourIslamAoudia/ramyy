@@ -19,13 +19,6 @@ export const metadata = {
   },
   description:
     "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
-    apple: { url: "/logo.jpg", type: "image/jpeg" },
-  },
   keywords: [
     "conciergerie côte d'azur",
     "gestion locative monaco",
@@ -121,12 +114,6 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-
-        {/* Favicons - Explicit for Google Search Console */}
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo.jpg" />
-        <link rel="manifest" href="/manifest.json" />
 
         {/* Google Analytics */}
         <script
