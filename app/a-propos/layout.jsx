@@ -25,7 +25,7 @@ export const metadata = {
     url: "https://www.bcconciergerie.com/a-propos",
     images: [
       {
-        url: "https://bcconciergerie.com/assets/logo.jpg",
+        url: "https://www.bcconciergerie.com/logo.jpg",
         width: 1200,
         height: 630,
         alt: "À Propos B&C Conciergerie",
