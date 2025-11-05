@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
@@ -13,10 +14,7 @@ const inter = Inter({
 
 export const metadata = {
   metadataBase: new URL("https://www.bcconciergerie.com"),
-  title: {
-    default: "B&C Conciergerie Côte d'Azur | Gestion Airbnb Nice Monaco",
-    template: "%s | B&C Conciergerie",
-  },
+    title: "B&C Conciergerie",
   description:
     "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
   keywords: [
@@ -92,14 +90,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <head>
-        {/* Critical CSS - Inlined to prevent render blocking */}
+        {/* Critical CSS - Minimal inline to prevent render blocking */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
           *{margin:0;padding:0;box-sizing:border-box}
-          :root{font-family:var(--font-inter),-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif;line-height:1.5;font-weight:400;scroll-behavior:smooth;--olive-700:#708238;--beige-100:#F5EEDF;--offwhite-50:#FAF9F6;--text-dark:#222;--muted-white:rgba(250,249,246,0.95)}
-          html,body{width:100%;height:100%;margin:0;padding:0;overflow-x:hidden;scroll-behavior:smooth}
-          body{background-color:#071014;color:var(--text-dark)}
+          :root{--olive-700:#708238;--beige-100:#F5EEDF;--offwhite-50:#FAF9F6;--text-dark:#222}
+          html,body{width:100%;height:100%;margin:0;padding:0;overflow-x:hidden}
+          body{background-color:#071014;color:var(--text-dark);font-family:var(--font-inter),-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
           .hero-section{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center}
         `,
           }}
@@ -116,27 +114,10 @@ export default function RootLayout({ children }) {
         />
 
         {/* Favicon - Multiple sizes for better browser support */}
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="shortcut icon" href="/favicon.png" />
-
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `,
-          }}
-        />
 
         {/* Structured Data - LocalBusiness */}
         <script
@@ -269,6 +250,8 @@ export default function RootLayout({ children }) {
           <main className="site-main">{children}</main>
           <Footer />
         </LanguageProvider>
+        {/* Analytics loaded after interactive - non-blocking */}
+        <Analytics />
       </body>
     </html>
   );

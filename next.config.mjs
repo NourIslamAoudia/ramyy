@@ -8,10 +8,10 @@ const nextConfig = {
 
   // Image optimization configuration
   images: {
-    formats: ["image/webp", "image/avif"],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60, // Cache for 1 minute
+    minimumCacheTTL: 31536000, // Cache for 1 year (images are immutable)
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
@@ -29,19 +29,13 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "via.placeholder.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
         hostname: "www.leguidedescommerciaux.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
         port: "",
         pathname: "/**",
       },
@@ -62,6 +56,9 @@ const nextConfig = {
   // Performance optimizations
   poweredByHeader: false,
   compress: true,
+
+  // Optimize bundle size
+  swcMinify: true,
 
   // Headers for SEO and security
   async headers() {

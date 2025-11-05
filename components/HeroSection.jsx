@@ -16,15 +16,17 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section">
-      {/* Background Video */}
+      {/* Background Video - Optimized for LCP */}
       <video 
         className="hero-video" 
         autoPlay 
         muted 
         loop 
         playsInline
-        preload="metadata"
-        loading="lazy"
+        preload="none"
+        poster="https://bcconciergerie.com/assets/video-poster.jpg"
+        aria-label="Vidéo de présentation B&C Conciergerie - Gestion locative Côte d'Azur"
+        title="B&C Conciergerie - Votre conciergerie de luxe sur la Côte d'Azur"
       >
         <source 
           src="https://bcconciergerie.com/assets/video-hero.mp4" 
