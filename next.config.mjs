@@ -82,7 +82,28 @@ const nextConfig = {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
         ],
+      },
+    ];
+  },
+
+  // Redirects for SEO canonicalization
+  async redirects() {
+    return [
+      // Redirect /apropos to /a-propos
+      {
+        source: "/apropos",
+        destination: "/a-propos",
+        permanent: true,
+      },
+      {
+        source: "/Apropos",
+        destination: "/a-propos",
+        permanent: true,
       },
     ];
   },

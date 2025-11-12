@@ -1,8 +1,20 @@
 {
   "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/apropos",
+      "destination": "/a-propos",
+      "permanent": true
+    },
+    {
+      "source": "/Apropos",
+      "destination": "/a-propos",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
-      "source": "/logo.jpg",
+      "source": "/icon_new.png",
       "headers": [
         {
           "key": "Cache-Control",

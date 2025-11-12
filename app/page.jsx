@@ -11,6 +11,9 @@ export const metadata = {
   title: "B&C Conciergerie Côte d'Azur | Gestion Airbnb Nice Monaco",
   description:
     "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
+  alternates: {
+    canonical: "https://www.bcconciergerie.com",
+  },
 };
 
 export default function HomePage() {

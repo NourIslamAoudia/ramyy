@@ -60,11 +60,11 @@ export const metadata = {
       "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
     images: [
       {
-        url: "https://www.bcconciergerie.com/logo.jpg",
+        url: "https://www.bcconciergerie.com/icon_new.png",
         width: 1200,
         height: 630,
         alt: "B&C Conciergerie Côte d'Azur",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
@@ -73,7 +73,7 @@ export const metadata = {
     title: "B&C Conciergerie Côte d'Azur | Gestion Airbnb Nice Monaco",
     description:
       "Conciergerie haut de gamme sur la Côte d'Azur. Gestion locative Airbnb, ménage professionnel, revenus optimisés. Nice, Monaco, Cannes. Devis gratuit.",
-    images: ["https://www.bcconciergerie.com/logo.jpg"],
+    images: ["https://www.bcconciergerie.com/icon_new.png"],
   },
   alternates: {
     canonical: "https://www.bcconciergerie.com",
@@ -114,10 +114,9 @@ export default function RootLayout({ children }) {
         />
 
         {/* Favicon - Multiple sizes for better browser support */}
-           <link rel="icon" href="/favicon.ico" sizes="32x32" />
-          <link rel="icon" href="/favicon.ico" sizes="16x16" />
-          <link rel="icon" href="/favicon.png" type="image/png" />
-          <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180" /> 
+        <link rel="icon" href="/icon_new.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon_new.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/icon_new.png" sizes="180x180" />
 
         {/* Structured Data - LocalBusiness */}
         <script
@@ -128,8 +127,8 @@ export default function RootLayout({ children }) {
               "@type": ["LocalBusiness", "Organization"],
               name: "B&C Conciergerie Côte d'Azur",
               alternateName: "B&C Conciergerie",
-              image: "https://www.bcconciergerie.com/logo.jpg",
-              logo: "https://www.bcconciergerie.com/logo.jpg",
+              image: "https://www.bcconciergerie.com/icon_new.png",
+              logo: "https://www.bcconciergerie.com/icon_new.png",
               "@id": "https://www.bcconciergerie.com",
               url: "https://www.bcconciergerie.com",
               telephone: "+33-XXX-XXX-XXX",
@@ -183,8 +182,8 @@ export default function RootLayout({ children }) {
               "@type": "RealEstateAgent",
               name: "B&C Conciergerie Côte d'Azur",
               url: "https://www.bcconciergerie.com",
-              logo: "https://www.bcconciergerie.com/logo.jpg",
-              image: "https://www.bcconciergerie.com/logo.jpg",
+              logo: "https://www.bcconciergerie.com/icon_new.png",
+              image: "https://www.bcconciergerie.com/icon_new.png",
               description:
                 "Conciergerie de luxe et gestion locative professionnelle sur la Côte d'Azur. Spécialisés en location courte durée, Airbnb et gestion d'appartements haut de gamme.",
               priceRange: "€€€",
