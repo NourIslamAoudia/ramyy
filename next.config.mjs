@@ -57,9 +57,6 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
 
-  // Optimize bundle size
-  swcMinify: true,
-
   // Headers for SEO and security
   async headers() {
     return [
